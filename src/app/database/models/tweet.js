@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       created_at: { type: DataTypes.STRING },
       id_str: { type: DataTypes.STRING },
-      text: { type: DataTypes.STRING },
+      text: { type: DataTypes.TEXT },
       source: { type: DataTypes.STRING },
       truncated: { type: DataTypes.BOOLEAN },
       in_reply_to_status_id: {

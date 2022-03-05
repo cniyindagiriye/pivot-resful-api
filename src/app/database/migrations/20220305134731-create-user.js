@@ -17,13 +17,13 @@ module.exports = {
         type: Sequelize.STRING,
       },
       location: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       url: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       protected: {
         type: Sequelize.BOOLEAN,
@@ -53,7 +53,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       profile_image_url_https: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       default_profile: {
         type: Sequelize.BOOLEAN,

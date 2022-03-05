@@ -3,17 +3,33 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = () => {
+  const lang = ['ar', 'en', 'fr', 'in', 'pt', 'es', 'tr', 'js'];
   const raw = fs
     .readFileSync(path.join(__dirname, '../../query2_ref.txt'))
     .toString();
   const rawData = raw.split('\n');
   const tweets = [];
+  const tweetIDs = [];
+  const userIDs = [];
   const users = [];
   rawData.forEach((element) => {
     if (element.length > 0 && !tweets.includes(element)) {
       const tweet = JSON.parse(element);
 
-      if (tweet.id && tweet.user && tweet.coordinates) {
+      if (
+        tweet.id &&
+        tweet.id_str &&
+        tweet.created_at &&
+        tweet.user.id &&
+        tweet.user.id_str &&
+        tweet.text &&
+        tweet.entities &&
+        tweet.entities.hashtags &&
+        tweet.entities.hashtags.length > 0 &&
+        lang.includes(tweet.lang) &&
+        !tweetIDs.includes(tweet.id)
+      ) {
+        tweetIDs.push(tweet.id);
         const item = {
           created_at: tweet.created_at,
           id_str: tweet.id_str,
@@ -48,9 +64,14 @@ module.exports = () => {
           matching_rules: JSON.stringify(tweet.matching_rules),
         };
         tweets.push(item);
-        if (!users.includes(tweet.user)) {
-          const { user } = tweet;
+
+        const { user } = tweet;
+
+        if (!userIDs.includes(user.id)) {
+          userIDs.push(user.id);
+
           const userData = {
+            id: user.id,
             id_str: user.id_str,
             name: user.name,
             screen_name: user.screen_name,

@@ -9,7 +9,7 @@ module.exports = {
       },
       created_at: { type: Sequelize.STRING },
       id_str: { type: Sequelize.STRING },
-      text: { type: Sequelize.STRING },
+      text: { type: Sequelize.TEXT },
       source: { type: Sequelize.STRING },
       truncated: { type: Sequelize.BOOLEAN },
       in_reply_to_status_id: {
