@@ -1,0 +1,7 @@
+/dist
+coverage/
+build/
+lib/
+extends/
+node_modules
+/src/assets
