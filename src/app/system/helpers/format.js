@@ -12,8 +12,7 @@ export const formatTweets = (tweets) => {
             ${tweet.user.id}&emsp;
             ${tweet.user.screen_name}&emsp;
             ${tweet.user.description}&emsp;
-            ${tweet.text}&emsp;
-            ${tweet.finalScore}
+            ${tweet.text}
           `;
     });
   }

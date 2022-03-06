@@ -52,7 +52,7 @@ export const rankingTweets = (tweets, type, phrase, hashtag) =>
       ...tweet,
       text: tweet.text,
       finalScore:
-        interactionScore(tweet) *
+        // interactionScore(tweet) *
         hashtagScore(tweet, hashtag) *
         keywordScore(tweet, type, phrase, hashtag),
     }))
