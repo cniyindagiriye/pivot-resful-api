@@ -1,10 +1,8 @@
 import { Router } from 'express';
-import tweetRoute from './_tweet';
+import TweetController from '../controllers/TweetController';
 
-const API_VERSION = process.env.API_VERSION || 'v1';
-const url = `/api/${API_VERSION}`;
 const router = Router();
 
-router.use(`${url}/tweets`, tweetRoute);
+router.get(`/q2`, TweetController.getTweets);
 
 export default router;
