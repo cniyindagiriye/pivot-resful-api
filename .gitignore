@@ -1,4 +1,4 @@
-node_modules/
+/node_modules
 package-lock.json
 dist/
 .env
@@ -16,3 +16,4 @@ yarn.lock
 .dccache
 /src/assets/**
 /src/query2_ref.txt
+.nyc_output

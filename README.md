@@ -17,4 +17,8 @@ Rename `.env_sample` to `.env` then update variables
 
 `npm start`
 
+## How to Test
+
+`npm test` and `npm run test:coverage` to see the test coverage
+
 You can press `Ctrl + c` to stop application.

@@ -7,7 +7,8 @@
     "start": "npm run db:migrate && npm run db:seed && npm run build && node dist/index.js",
     "dev": "nodemon --exec babel-node src/index.js",
     "build": "babel src --out-dir dist --extensions \".js\" --ignore src/tests/ --source-maps inline  --copy-files",
-    "test": "jest --coverage --config=jest.config.js  --runInBand --detectOpenHandles --forceExit",
+    "test": "mocha --timeout 15000 --require @babel/register src/tests/**/*.test.js --exit",
+    "test:coverage": "nyc npm test --exit",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint --fix src/**/*.js",
     "db:migrate": "sequelize db:migrate",
@@ -17,7 +18,7 @@
     "migration:undo": "sequelize db:migrate:undo:all"
   },
   "keywords": [],
-  "author": "",
+  "author": "Celestin Niyindagiriye",
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.15.4",
@@ -44,13 +45,16 @@
     "@babel/register": "^7.14.5",
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
-    "jest": "^27.0.6",
+    "mocha": "^9.2.2",
     "nodemon": "^2.0.12",
+    "nyc": "^15.1.0",
     "prettier": "^2.3.2"
   }
 }
